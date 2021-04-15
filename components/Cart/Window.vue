@@ -94,24 +94,24 @@ export default {
   padding: 52px 48px;
 }
 .title {
-  font-size: 32px;
-  font-weight: 700;
+  @include bold-text(3.2rem);
   margin-bottom: 24px;
 }
 .noitems {
-  font-size: 22px;
+  font-size: 2.2rem;
   width: 90%;
 }
 .button {
   width: 100%;
   background-color: $color-black;
-  border-radius: 8px;
+  border-radius: $border-radius-default;
   color: white;
   text-align: center;
   padding: 14px 0 15px 0;
   border: none;
   cursor: pointer;
   margin-top: 24px;
+  font-size: 1.6rem;
 }
 .button:hover {
   background-color: $color-grey;
@@ -126,7 +126,7 @@ export default {
   cursor: pointer;
 }
 .text {
-  font-size: 18px;
+  font-size: 1.8rem;
   color: $color-grey;
   margin-bottom: 16px;
 }
@@ -148,7 +148,7 @@ export default {
   margin-bottom: 24px;
 }
 .done span:nth-child(2) {
-  @include bold-text(24px)
+  @include bold-text(2.4rem)
 }
 .done span:nth-child(3) {
   margin-bottom: 100px;

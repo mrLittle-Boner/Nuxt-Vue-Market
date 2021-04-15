@@ -2,7 +2,7 @@
   <header :class="$style.header">
     <div class="container" :class="$style.header__container">
       <div :class="$style.header__logo">
-        <a href="">TestList</a>
+        TestList
       </div>
       <div :class="$style.header__cart" @click="toggle">
         <SVGsCart />
@@ -31,6 +31,7 @@ export default {
 
 <style module lang="scss">
 @import '~assets/css/variables';
+@import '~assets/css/mixins';
 
 .header__container {
   display: flex;
@@ -43,8 +44,7 @@ export default {
 
 .header__logo {
   color: $color-grey;
-  font-size: 22px;
-  font-weight: 700;
+  @include bold-text(2.2rem)
 }
 
 .header__cart {
@@ -56,10 +56,11 @@ export default {
 }
 
 .header__cart svg {
-  fill: black;
+  fill: $color-black;
 }
 
 .header__amount {
+  @include bold-text(0.8rem);
   position: absolute;
   display: flex;
   align-items: center;
@@ -67,9 +68,7 @@ export default {
   color: white;
   top: -4px;
   right: -5px;
-  font-size: 8px;
-  font-weight: 700;
-  background-color: #959DAD;
+  background-color: $color-grey-light;
   border-radius: 50%;
   width: 12px;
   height: 12px;

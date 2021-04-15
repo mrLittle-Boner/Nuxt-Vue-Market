@@ -14,7 +14,7 @@
       {{ product.name }}
     </div>
     <div :class="$style.item__price">
-      {{ product.price }} &#8381;
+      {{ formatPrice(product.price) }} &#8381;
     </div>
   </li>
 </template>
@@ -44,6 +44,9 @@ export default {
         return 'selected'
       }
       return ''
+    },
+    formatPrice (price) {
+      return price.toString().match(/\d{3}/g).join(' ')
     }
   }
 }
@@ -60,19 +63,20 @@ export default {
   grid-template-columns: auto 1fr auto;
   grid-template-rows: repeat(3, auto);
   border: 1px solid transparent;
-  border-radius: 8px;
+  border-radius: $border-radius-default;
   box-shadow: $box-shadow-card;
 }
 
 .item__name {
   grid-column: span 3;
-  font-size: 14px;
+  font-size: 1.4rem;
+  color: $color-grey;
 }
 
 .item__price {
   grid-column: span 3;
   margin-top: 6px;
-  @include bold-text(14px)
+  @include bold-text(1.4rem)
 }
 
 .item__rating {
@@ -83,7 +87,7 @@ export default {
 }
 
 .item__rating span {
-  @include bold-text(10px);
+  @include bold-text(1rem);
   color: $color-star;
   margin-left: 3px;
 }

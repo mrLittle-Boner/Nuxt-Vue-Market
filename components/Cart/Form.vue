@@ -29,29 +29,37 @@ export default {
 .form__button {
   width: 100%;
   background-color: $color-black;
-  border-radius: 8px;
+  border-radius: $border-radius-default;
   color: white;
   text-align: center;
   padding: 14px 0 15px 0;
   border: none;
   cursor: pointer;
   margin-top: 24px;
+  font-size: 1.6rem;
 }
 .form__button:hover {
   background-color: $color-grey;
 }
 .form__title {
-  font-size: 18px;
+  font-size: 1.8rem;
   font-weight: 400;
   color: $color-grey;
   margin-bottom: 16px;
 }
 .form__input {
   background: $color-grey-extra-light;
-  border-radius: 8px;
+  border-radius: $border-radius-default;
   border: none;
-  padding: 14px 14px 15px 14px;
+  font-size: 1.6rem;
+  color: $color-black;
+  padding: 0 15px;
+  height: 50px;
   width: 100%;
+  font-family: inherit;
+}
+.form__input::placeholder {
+  color: $color-grey-light;
 }
 .form__input:not(:last-of-type) {
   margin-bottom: 16px;

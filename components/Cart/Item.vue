@@ -48,7 +48,7 @@ export default {
   display: flex;
   padding: 15px 15px 15px 25px;
   box-shadow: $box-shadow-card;
-  border-radius: 8px;
+  border-radius: $border-radius-default;
 }
 .item__photo {
   width: 70px;
@@ -68,15 +68,14 @@ export default {
   flex-direction: column;
 }
 .item__price {
-  font-size: 14px;
-  font-weight: 700;
+  @include bold-text(1.4rem)
 }
 .item__name {
-  font-size: 14px;
+  font-size: 1.4rem;
   margin-bottom: 6px;
 }
 .item__rating {
-  font-size: 10px;
+  font-size: 1rem;
   color: $color-star;
   margin-top: auto;
   display: flex;
@@ -87,6 +86,7 @@ export default {
   margin-left: auto;
   display: flex;
   align-items: center;
+  padding-right: 7px;
 }
 .item__delete svg {
   fill : $color-grey-light;

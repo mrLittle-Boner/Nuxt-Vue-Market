@@ -29,7 +29,7 @@
 }
 
 .categories__title {
-  @include bold-text(32px);
+  @include bold-text(3.2rem);
   color: $color-black;
   margin-bottom: 24px;
 }

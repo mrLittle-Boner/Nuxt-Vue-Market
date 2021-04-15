@@ -52,6 +52,7 @@ export default {
   margin-left: auto;
   cursor: pointer;
   min-width: 130px;
+  font-size: 1.6rem;
 }
 .sort__expand {
   display: flex;
@@ -60,17 +61,17 @@ export default {
   top: 100%;
   right: 0;
   left: 0;
-  margin-top: 6px;
-  padding-bottom: 12px;
   padding-top: 8px;
+  padding-bottom: 12px;
+  margin-top: 6px;
   background-color: white;
-  color: #959DAD;
-  box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.05);
-  border-radius: 0 0 8px 8px;
+  color: $color-grey-light;
+  box-shadow: $box-shadow-card;
+  border-radius: $border-radius-default;
   overflow: hidden;
 }
 .sort__option {
-  font-size: 14px;
+  font-size: 1.4rem;
   padding: 4px 12px;
 }
 .sort__option:hover {
