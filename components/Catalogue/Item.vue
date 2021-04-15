@@ -8,7 +8,7 @@
       <img :src="'https://frontend-test.idaproject.com' + product.photo">
     </div>
     <div :class="$style.item__cart" @click="addToCart(product)">
-      <CartLogo />
+      <SVGsCart />
     </div>
     <div :class="$style.item__name">
       {{ product.name }}
@@ -50,58 +50,66 @@ export default {
 </script>
 
 <style module lang="scss">
+@import '~assets/css/variables';
+@import '~assets/css/mixins';
 
-  .item {
-    position: relative;
-    padding: 16px;
-    display: grid;
-    grid-template-columns: auto 1fr auto;
-    grid-template-rows: repeat(3, auto);
-    border: 1px solid transparent;
-    border-radius: 8px;
+.item {
+  position: relative;
+  padding: 16px;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  grid-template-rows: repeat(3, auto);
+  border: 1px solid transparent;
+  border-radius: 8px;
+  box-shadow: $box-shadow-card;
+}
 
-    &__cart {
-      width: 12px;
-      height: 14px;
+.item__name {
+  grid-column: span 3;
+  font-size: 14px;
+}
 
-      svg {
-        fill: #959DAD;
-        cursor: pointer;
+.item__price {
+  grid-column: span 3;
+  margin-top: 6px;
+  @include bold-text(14px)
+}
 
-        &:hover {
-          fill: black;
-        }
-      }
-    }
-    &__name {
-      grid-column: span 3;
-      font-size: 14px;
-    }
-    &__price {
-      grid-column: span 3;
-      margin-top: 6px;
-      font-weight: 700;
-    }
-    &__rating {
-      align-self: self-start;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-        span {
-        font-size: 10px;
-        font-weight: 700;
-        color: #F2C94C;
-        margin-left: 3px;
-      }
-    }
-    &__photo {
-      width: 200px;
-      height: 200px;
-      img{
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-      }
-    }
-  }
+.item__rating {
+  align-self: self-start;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.item__rating span {
+  @include bold-text(10px);
+  color: $color-star;
+  margin-left: 3px;
+}
+
+.item__photo {
+  width: 200px;
+  height: 200px;
+}
+
+.item__photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.item__cart {
+  width: 12px;
+  height: 14px;
+}
+
+.item__cart svg {
+  fill: $color-black;
+  cursor: pointer;
+}
+
+.item__cart svg:hover {
+  fill: $color-grey-light;
+}
 </style>

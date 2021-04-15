@@ -20,28 +20,31 @@
 </template>
 
 <style module lang="scss">
+@import '~assets/css/variables';
+@import '~assets/css/mixins';
+
 .categories {
   margin-right: 50px;
+  max-width: 161px;
+}
 
-  &__title {
-    font-size: 32px;
-    color: black;
-    font-weight: 700;
-    margin-bottom: 24px;
-  }
+.categories__title {
+  @include bold-text(32px);
+  color: $color-black;
+  margin-bottom: 24px;
+}
 
-  &__nav {
-    display: flex;
-    flex-direction: column;
-    row-gap: 16px;
+.categories__nav {
+  display: flex;
+  flex-direction: column;
+  row-gap: 16px;
+}
 
-    a {
-      color: #959DAD;
+.categories__nav a {
+  color: $color-grey-light;
+}
 
-      &:hover {
-        color: #59606D;
-      }
-    }
-  }
+.categories__nav a:hover {
+  color: $color-grey;
 }
 </style>

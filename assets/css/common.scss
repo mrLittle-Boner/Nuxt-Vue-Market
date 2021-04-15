@@ -35,8 +35,14 @@ a {
 }
 
 .nuxt-link-exact-active {
-  color: black !important;
+  color: $color-black !important;
   text-decoration: underline;
+}
+
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 88px;
 }
 
 .catalogue {

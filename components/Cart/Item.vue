@@ -41,65 +41,58 @@ export default {
 </script>
 
 <style module lang="scss">
-  .item {
-    display: flex;
+@import '~assets/css/variables';
+@import '~assets/css/mixins';
 
-    padding: 15px 15px 15px 25px;
-    box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.05);
-    border-radius: 8px;
-
-    &__photo {
-      width: 70px;
-      height: 90px;
-      margin-right: 34px;
-
-      img {
-        display: block;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-      }
-    }
-
-    &__info {
-      flex-grow: 1;
-      max-width: 170px;
-      display: flex;
-      flex-direction: column;
-    }
-
-    &__price {
-      font-size: 14px;
-      font-weight: 700;
-    }
-
-    &__name {
-      font-size: 14px;
-      margin-bottom: 6px;
-    }
-
-    &__rating {
-      font-size: 10px;
-      color: #F2C94C;
-      margin-top: auto;
-      display: flex;
-      align-items: center;
-      gap: 4px;
-    }
-
-    &__delete {
-      margin-left: auto;
-      display: flex;
-      align-items: center;
-
-      svg {
-        fill : #959DAD;
-        cursor: pointer;
-
-        &:hover {
-          fill: black;
-        }
-      }
-    }
-  }
+.item {
+  display: flex;
+  padding: 15px 15px 15px 25px;
+  box-shadow: $box-shadow-card;
+  border-radius: 8px;
+}
+.item__photo {
+  width: 70px;
+  height: 90px;
+  margin-right: 34px;
+}
+.item__photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.item__info {
+  flex-grow: 1;
+  max-width: 170px;
+  display: flex;
+  flex-direction: column;
+}
+.item__price {
+  font-size: 14px;
+  font-weight: 700;
+}
+.item__name {
+  font-size: 14px;
+  margin-bottom: 6px;
+}
+.item__rating {
+  font-size: 10px;
+  color: $color-star;
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  gap: 4px
+}
+.item__delete {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+}
+.item__delete svg {
+  fill : $color-grey-light;
+  cursor: pointer;
+}
+.item__delete svg:hover {
+  fill: $color-black;
+}
 </style>

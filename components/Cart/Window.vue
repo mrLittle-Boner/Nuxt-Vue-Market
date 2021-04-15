@@ -69,90 +69,88 @@ export default {
 </script>
 
 <style module lang="scss">
-  .modal {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    z-index: 2;
-    right: 0;
-    background-color: rgba(255, 255, 255, 0.8);
-  }
-  .container {
-    background-color: white;
-    position: absolute;
-    max-width: 460px;
-    overflow: auto;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    display: flex;
-    flex-direction: column;
-    margin-left: auto;
-    padding: 52px 48px;
-  }
-  .title {
-    font-size: 32px;
-    font-weight: 700;
-    margin-bottom: 24px;
-  }
-  .noitems {
-    font-size: 22px;
-    width: 90%;
-  }
-  .button {
-    width: 100%;
-    background-color: #1F1F1F;
-    border-radius: 8px;
-    color: white;
-    text-align: center;
-    padding: 14px 0 15px 0;
-    border: none;
-    cursor: pointer;
-    margin-top: 24px;
-
-    &:hover {
-      background-color: #59606D;;
-    }
-  }
-  .close {
-    position: absolute;
-    background-color: white;
-    border: none;
-    right: 50px;
-    top: 69px;
-    display: flex;
-    cursor: pointer;
-  }
-  .text {
-    font-size: 18px;
-    color: #59606D;
-    margin-bottom: 16px;
-  }
-  .items {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 32px;
-    row-gap: 16px;
-  }
-  .done {
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-
-    img {
-      display: flex;
-      margin-bottom: 24px;
-    }
-
-    span:nth-child(2) {
-      font-size: 24px;
-      font-weight: 700;
-    }
-    span:nth-child(3) {
-      margin-bottom: 100px;
-    }
-  }
+@import '~assets/css/variables';
+@import '~assets/css/mixins';
+.modal {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
+  right: 0;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+.container {
+  background-color: white;
+  position: absolute;
+  max-width: 460px;
+  overflow: auto;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  margin-left: auto;
+  padding: 52px 48px;
+}
+.title {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 24px;
+}
+.noitems {
+  font-size: 22px;
+  width: 90%;
+}
+.button {
+  width: 100%;
+  background-color: $color-black;
+  border-radius: 8px;
+  color: white;
+  text-align: center;
+  padding: 14px 0 15px 0;
+  border: none;
+  cursor: pointer;
+  margin-top: 24px;
+}
+.button:hover {
+  background-color: $color-grey;
+}
+.close {
+  position: absolute;
+  background-color: white;
+  border: none;
+  right: 50px;
+  top: 69px;
+  display: flex;
+  cursor: pointer;
+}
+.text {
+  font-size: 18px;
+  color: $color-grey;
+  margin-bottom: 16px;
+}
+.items {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 32px;
+  row-gap: 16px;
+}
+.done {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.done img {
+  display: flex;
+  margin-bottom: 24px;
+}
+.done span:nth-child(2) {
+  @include bold-text(24px)
+}
+.done span:nth-child(3) {
+  margin-bottom: 100px;
+}
 </style>

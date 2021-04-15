@@ -1,0 +1,4 @@
+@mixin bold-text($size){
+  font-weight: 700;
+  font-size: $size;
+}
