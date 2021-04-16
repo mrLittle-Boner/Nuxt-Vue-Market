@@ -3,21 +3,43 @@
     <h2 :class="$style.categories__title">
       Каталог
     </h2>
-    <nav :class="$style.categories__nav">
-      <NuxtLink :class="$style.categories__link" to="/1">
-        Рюкзаки
-      </NuxtLink>
-
-      <NuxtLink :class="$style.categories__link" to="/2">
-        Сумки
-      </NuxtLink>
-
-      <NuxtLink :class="$style.categories__link" to="/3">
-        Деловые сумки
-      </NuxtLink>
-    </nav>
+    <ul :class="$style.categories__nav">
+      <li
+        v-for="category in categories"
+        :key="category.id"
+        :class="[$style.categories__link, currentCategory === category.id ? $style.active : '' ]"
+        @click="setCategory(category.id)"
+      >
+        <span>{{ category.name }}</span>
+      </li>
+    </ul>
   </div>
 </template>
+
+<script>
+export default {
+  data () {
+    return {
+      categories: []
+    }
+  },
+  async fetch () {
+    const fetchedCategories = await fetch('https://frontend-test.idaproject.com/api/product-category').then(resp => resp.json())
+    this.categories = fetchedCategories
+    this.$store.commit('setCurrentCategory', fetchedCategories[0].id)
+  },
+  computed: {
+    currentCategory () {
+      return this.$store.state.currentCategory
+    }
+  },
+  methods: {
+    setCategory (num) {
+      this.$store.commit('setCurrentCategory', num)
+    }
+  }
+}
+</script>
 
 <style module lang="scss">
 @import '~assets/css/variables';
@@ -38,13 +60,20 @@
   display: flex;
   flex-direction: column;
   row-gap: 16px;
+  font-size: 1.6rem;
 }
 
-.categories__nav a {
+.categories__link {
+  cursor: pointer;
   color: $color-grey-light;
 }
 
-.categories__nav a:hover {
+.categories__link:hover {
   color: $color-grey;
+}
+
+.active {
+  color: $color-black;
+  text-decoration: underline;
 }
 </style>

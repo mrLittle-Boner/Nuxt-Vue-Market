@@ -34,26 +34,10 @@ a {
   color: inherit;
 }
 
-.nuxt-link-exact-active {
-  color: $color-black !important;
-  text-decoration: underline;
-}
-
 .container {
   max-width: 1440px;
   margin: 0 auto;
   padding: 0 88px;
-}
-
-.catalogue {
-  flex-grow: 1;
-
-  &__list {
-    margin-top: 34px;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, 264px);
-    gap: 16px;
-  }
 }
 
 .selected {

@@ -16,10 +16,10 @@ export default {
     ]
   },
   router: {
-    base: '/category/',
-    routes: [
-      {path: '*', redirect: '/1' }
-    ]
+    // base: '/category/',
+    // routes: [
+    //   {path: '*', redirect: '/1' }
+    // ]
   },
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
