@@ -58,9 +58,9 @@ export default {
 
 .item {
   position: relative;
-  padding: 16px;
+  padding: 9px 7px 25px;
   display: grid;
-  grid-template-columns: auto 1fr auto;
+  grid-template-columns: 32px 153px 1fr;
   grid-template-rows: repeat(3, auto);
   border: 1px solid transparent;
   border-radius: $border-radius-default;
@@ -70,6 +70,7 @@ export default {
 .item__name {
   grid-column: span 3;
   font-size: 1.4rem;
+  margin-top: 16px;
   color: $color-grey;
 }
 
@@ -84,17 +85,25 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
+
+}
+
+.item__rating svg {
+  width: 20px;
+  height: 20px;
+  padding: 3.12px;
+  padding-bottom: 3.74px;
 }
 
 .item__rating span {
   @include bold-text(1rem);
   color: $color-star;
-  margin-left: 3px;
 }
 
 .item__photo {
-  width: 200px;
-  height: 200px;
+  width: 153px;
+  height: 180px;
+  padding-left: 11px;
 }
 
 .item__photo img {
@@ -106,6 +115,7 @@ export default {
 .item__cart {
   width: 12px;
   height: 14px;
+  margin-left: 30.29px;
 }
 
 .item__cart svg {

@@ -1,5 +1,5 @@
 <template>
-  <div :class="$style.sort" @mouseenter="show" @mouseleave="hide">
+  <button :class="$style.sort" @mouseenter="show" @mouseleave="hide">
     <div :class="$style.sort__trigger">
       Сортировать по : <span :class="$style.sort__type">{{ sortingType }}</span>
     </div>
@@ -11,7 +11,7 @@
         По популярности
       </span>
     </div>
-  </div>
+  </button>
 </template>
 
 <script>
@@ -47,12 +47,15 @@ export default {
 .sort {
   position: relative;
   z-index: 1;
+  border: none;
+  background-color: white;
   display: flex;
   width: fit-content;
   margin-left: auto;
   cursor: pointer;
   min-width: 130px;
   font-size: 1.6rem;
+  text-align: left;
 }
 .sort__expand {
   display: flex;
@@ -80,5 +83,16 @@ export default {
 }
 .sort__type {
   color: $color-grey;
+  display: inline-flex;
+  align-items: center;
+}
+.sort__type::after {
+  width: 0;
+  content: '';
+  margin-left: 4px;
+  height: 0;
+  border-style: solid;
+  border-width: 2.5px 2.5px 0 2.5px;
+  border-color: $color-grey transparent transparent transparent;
 }
 </style>

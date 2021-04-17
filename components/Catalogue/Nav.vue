@@ -46,8 +46,9 @@ export default {
 @import '~assets/css/mixins';
 
 .categories {
-  margin-right: 50px;
-  max-width: 161px;
+  width: 160px;
+  padding-right: 10px;
+  margin-top: 32px;
 }
 
 .categories__title {

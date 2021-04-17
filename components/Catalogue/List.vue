@@ -23,7 +23,6 @@ export default {
 
 <style module lang="scss">
   .catalogue__list {
-    flex-grow: 1;
     margin-top: 34px;
     display: grid;
     grid-template-columns: repeat(auto-fill, 264px);

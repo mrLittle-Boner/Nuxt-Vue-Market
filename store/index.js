@@ -30,7 +30,7 @@ export const mutations = {
   clearCart (state) {
     state.itemsInCart = []
   },
-  doneShopping (state) {
-    state.shoppingDone = true
+  toggleShoppingStatus (state) {
+    state.shoppingDone = !state.shoppingDone
   }
 }

@@ -1,7 +1,10 @@
 <template>
   <div :class="$style.content">
     <CatalogueNav />
-    <CatalogueList />
+    <main :class="$style.catalogue__view">
+      <CatalogueSorting />
+      <CatalogueList />
+    </main>
   </div>
 </template>
 
@@ -10,10 +13,18 @@ export default {
   async fetch () {
     const allProducts = await fetch('https://frontend-test.idaproject.com/api/product').then(res => res.json())
     this.$store.commit('setItems', allProducts)
-    // const fetchedCategories = await fetch('https://frontend-test.idaproject.com/api/product-category').then(resp => resp.json())
-    // this.$store.commit('setCurrentCategory', fetchedCategories[0].id)
-    // this.categories = fetchedCategories
-    // this.categoryNum = fetchedCategories[0].id
+  },
+  head () {
+    return {
+      bodyAttrs: {
+        class: this.modalOpen ? 'scrolnt' : ''
+      }
+    }
+  },
+  computed: {
+    modalOpen () {
+      return this.$store.state.showModal
+    }
   }
 }
 </script>
@@ -24,6 +35,11 @@ export default {
 }
 .content {
   display: flex;
-  margin-top: 32px;
+}
+.catalogue__view {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  margin-top: 42px;
 }
 </style>

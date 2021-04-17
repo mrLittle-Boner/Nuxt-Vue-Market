@@ -1,5 +1,5 @@
 <template>
-  <form :class="$style.form" @submit.prevent="submit">
+  <form :class="[$style.form, amountCartItems > 6 ? $style.ordered : '']" @submit.prevent="submit">
     <h3 :class="$style.form__title">
       Оформить заказ
     </h3>
@@ -14,10 +14,15 @@
 
 <script>
 export default {
+  computed: {
+    amountCartItems () {
+      return this.$store.state.itemsInCart.length
+    }
+  },
   methods: {
     submit () {
       this.$store.commit('clearCart')
-      this.$store.commit('doneShopping')
+      this.$store.commit('toggleShoppingStatus')
     }
   }
 }
@@ -25,6 +30,10 @@ export default {
 
 <style module lang="scss">
 @import '~assets/css/variables';
+
+.ordered {
+  order: -1;
+}
 
 .form__button {
   width: 100%;

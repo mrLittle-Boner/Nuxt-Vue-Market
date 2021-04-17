@@ -1,7 +1,7 @@
 <template>
-  <div v-if="isShowModal" :class="$style.modal">
+  <div v-if="isShowModal" :class="$style.modal" @click.self="closeWindow">
     <div :class="$style.container">
-      <button :class="$style.close" @click="toggle">
+      <button :class="$style.close" @click="closeWindow">
         <SVGsClose />
       </button>
 
@@ -13,23 +13,25 @@
         <div :class="$style.noitems">
           Пока что вы ничего не добавили в корзину.
         </div>
-        <button :class="$style.button" @click="toggle">
+        <button :class="$style.button" @click="closeWindow">
           Перейти к выбору
         </button>
       </div>
 
-      <div v-if="itemsInCart.length >= 1 && !isDone">
-        <div :class="$style.text">
-          Товары в корзине
-        </div>
+      <div v-if="itemsInCart.length >= 1 && !isDone" :class="$style.wrapper">
+        <div :class="$style.content">
+          <div :class="$style.text">
+            Товары в корзине
+          </div>
 
-        <ul :class="$style.items">
-          <CartItem
-            v-for="item in itemsInCart"
-            :key="item.id"
-            :item="item"
-          />
-        </ul>
+          <ul :class="$style.items">
+            <CartItem
+              v-for="item in itemsInCart"
+              :key="item.id"
+              :item="item"
+            />
+          </ul>
+        </div>
 
         <CartForm />
       </div>
@@ -63,7 +65,13 @@ export default {
   methods: {
     ...mapMutations({
       toggle: 'toggleModalCartWindow'
-    })
+    }),
+    closeWindow () {
+      if (this.isDone) {
+        this.$store.commit('toggleShoppingStatus')
+      }
+      this.$store.commit('toggleModalCartWindow')
+    }
   }
 }
 </script>
@@ -71,10 +79,20 @@ export default {
 <style module lang="scss">
 @import '~assets/css/variables';
 @import '~assets/css/mixins';
+
+.ordered {
+  order: -1;
+}
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  row-gap: 32px;
+}
 .modal {
-  position: fixed;
+  position: absolute;
   top: 0;
   bottom: 0;
+  width: 102vw;
   left: 0;
   z-index: 2;
   right: 0;
@@ -85,7 +103,7 @@ export default {
   position: absolute;
   max-width: 460px;
   overflow: auto;
-  right: 0;
+  right: 32px;
   top: 0;
   bottom: 0;
   display: flex;
@@ -133,7 +151,6 @@ export default {
 .items {
   display: flex;
   flex-direction: column;
-  margin-bottom: 32px;
   row-gap: 16px;
 }
 .done {
