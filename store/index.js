@@ -3,8 +3,10 @@ export const state = () => ({
   items: [],
   itemsInCart: [],
   currentCategory: 0,
-  sortingType: '',
-  shoppingDone: false
+  sortingType: 'rating',
+  ascendDirection: true,
+  shoppingDone: false,
+  pioa: '123'
 })
 
 export const mutations = {
@@ -16,6 +18,9 @@ export const mutations = {
   },
   toggleModalCartWindow (state) {
     state.showModal = !state.showModal
+  },
+  toggleSortingDirection (state) {
+    state.ascendDirection = !state.ascendDirection
   },
   addItemToCart (state, item) {
     state.itemsInCart.push(item)

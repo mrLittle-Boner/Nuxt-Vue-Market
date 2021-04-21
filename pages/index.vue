@@ -25,6 +25,11 @@ export default {
     modalOpen () {
       return this.$store.state.showModal
     }
+  },
+  methods: {
+    closeSort () {
+      this.$store.commit('closeSortWindow')
+    }
   }
 }
 </script>

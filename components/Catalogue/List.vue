@@ -15,7 +15,29 @@ export default {
       return this.$store.state.currentCategory
     },
     currentCategoryItems () {
-      return this.$store.state.items.filter(item => item.category === this.currentCategory)
+      const items = this.$store.state.items.filter(item => item.category === this.currentCategory)
+      const sortBy = this.$store.state.sortingType
+      const ascendSort = this.$store.state.ascendDirection
+      let filteredItems = []
+
+      if (sortBy === 'rating') {
+        if (ascendSort) {
+          filteredItems = items.sort((a, b) => b.rating - a.rating)
+        }
+        if (!ascendSort) {
+          filteredItems = items.sort((a, b) => a.rating - b.rating)
+        }
+      }
+
+      if (sortBy === 'price') {
+        if (ascendSort) {
+          filteredItems = items.sort((a, b) => b.price - a.price)
+        }
+        if (!ascendSort) {
+          filteredItems = items.sort((a, b) => a.price - b.price)
+        }
+      }
+      return filteredItems
     }
   }
 }
