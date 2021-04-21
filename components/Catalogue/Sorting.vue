@@ -46,8 +46,6 @@ export default {
       if (sortingBy !== sortBy) {
         this.$store.commit('changeSortingType', sortBy)
       }
-
-      this.showSort = false
     }
   }
 }
@@ -70,6 +68,7 @@ export default {
   font-size: 1.6rem;
   text-align: left;
 }
+
 .sort__expand {
   display: flex;
   flex-direction: column;
@@ -86,26 +85,32 @@ export default {
   border-radius: $border-radius-default;
   overflow: hidden;
 }
+
 .sort__trigger {
   display: flex;
 }
+
 .sort__option {
   font-size: 1.4rem;
   padding: 4px 12px;
 }
+
 .sort__option:hover {
   color: $color-black;
   background-color: $color-grey-extra-light;
 }
+
 .sort__type {
   color: $color-grey;
   display: inline-flex;
   align-items: center;
 }
+
 .triangle {
   display: flex;
   align-items: center;
 }
+
 .triangle__asc::after {
   width: 0;
   content: ' ';
@@ -115,6 +120,7 @@ export default {
   border-width: 2.5px 2.5px 0 2.5px;
   border-color: $color-grey transparent transparent transparent;
 }
+
 .triangle__desc::after {
   width: 0;
   height: 0;

@@ -50,30 +50,36 @@ export default {
   box-shadow: $box-shadow-card;
   border-radius: $border-radius-default;
 }
+
 .item__photo {
   width: 70px;
   height: 90px;
   margin-right: 34px;
 }
+
 .item__photo img {
   display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
+
 .item__info {
   flex-grow: 1;
   max-width: 170px;
   display: flex;
   flex-direction: column;
 }
+
 .item__price {
   @include bold-text(1.4rem)
 }
+
 .item__name {
   font-size: 1.4rem;
   margin-bottom: 6px;
 }
+
 .item__rating {
   font-size: 1rem;
   color: $color-star;
@@ -82,17 +88,21 @@ export default {
   align-items: center;
   gap: 4px
 }
+
 .item__delete {
   margin-left: auto;
   display: flex;
   align-items: center;
   padding-right: 7px;
 }
+
 .item__delete svg {
   fill : $color-grey-light;
   cursor: pointer;
 }
+
 .item__delete svg:hover {
   fill: $color-black;
 }
+
 </style>

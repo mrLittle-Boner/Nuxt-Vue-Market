@@ -1,5 +1,5 @@
 <template>
-  <li :class="$style.item + ' ' + selectedClass(product.id) ">
+  <li :class="[$style.item, itemInCart ? $style.item__selected : '']">
     <div :class="$style.item__rating">
       <SVGsRating />
       <span>{{ product.rating }}</span>
@@ -14,7 +14,7 @@
       {{ product.name }}
     </div>
     <div :class="$style.item__price">
-      {{ formatPrice(product.price) }} &#8381;
+      {{ formatedPrice }} &#8381;
     </div>
   </li>
 </template>
@@ -27,26 +27,21 @@ export default {
       type: Object
     }
   },
+  computed: {
+    formatedPrice () {
+      return this.product.price.toString().match(/\d{3}/g).join(' ')
+    },
+    itemInCart () {
+      return this.$store.state.itemsInCart.map(item => item.id).includes(this.product.id)
+    }
+  },
   methods: {
     addToCart (item) {
-      if (this.itemInCart(item.id)) {
+      if (this.itemInCart) {
         this.$store.commit('removeFromCart', item.id)
       } else {
         this.$store.commit('addItemToCart', item)
       }
-    },
-    itemInCart (id) {
-      const itemInCartIds = this.$store.state.itemsInCart.map(item => item.id)
-      return itemInCartIds.includes(id)
-    },
-    selectedClass (id) {
-      if (this.itemInCart(id)) {
-        return 'selected'
-      }
-      return ''
-    },
-    formatPrice (price) {
-      return price.toString().match(/\d{3}/g).join(' ')
     }
   }
 }
@@ -65,6 +60,14 @@ export default {
   border: 1px solid transparent;
   border-radius: $border-radius-default;
   box-shadow: $box-shadow-card;
+}
+
+.item__selected {
+  border-color: $color-grey-light;
+}
+
+.item__selected .item__cart svg {
+  fill: $color-black ;
 }
 
 .item__name {
@@ -119,11 +122,11 @@ export default {
 }
 
 .item__cart svg {
-  fill: $color-black;
+  fill: $color-grey-light;
   cursor: pointer;
 }
 
 .item__cart svg:hover {
-  fill: $color-grey-light;
+  fill: $color-black;
 }
 </style>

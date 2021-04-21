@@ -25,26 +25,21 @@ export default {
     modalOpen () {
       return this.$store.state.showModal
     }
-  },
-  methods: {
-    closeSort () {
-      this.$store.commit('closeSortWindow')
-    }
   }
 }
 </script>
 
 <style module lang="scss">
-.lipa {
-  font-size: 1.6rem;
-}
+
 .content {
   display: flex;
 }
+
 .catalogue__view {
   display: flex;
   flex-direction: column;
   flex-grow: 1;
   margin-top: 42px;
 }
+
 </style>

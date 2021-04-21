@@ -4,7 +4,15 @@
       Оформить заказ
     </h3>
     <input :class="$style.form__input" type="text" placeholder="Ваше Имя" required>
-    <input :class="$style.form__input" type="text" placeholder="Телефон" required>
+    <input
+      v-phone
+      :class="$style.form__input"
+      type="tel"
+      placeholder="Телефон"
+      pattern="8[(][0-9]{3}[)] [0-9]{3}-[0-9]{4}"
+      max="15"
+      required
+    >
     <input :class="$style.form__input" type="text" placeholder="Адрес" required>
     <button :class="$style.form__button">
       Отправить
@@ -47,15 +55,18 @@ export default {
   margin-top: 24px;
   font-size: 1.6rem;
 }
+
 .form__button:hover {
   background-color: $color-grey;
 }
+
 .form__title {
   font-size: 1.8rem;
   font-weight: 400;
   color: $color-grey;
   margin-bottom: 16px;
 }
+
 .form__input {
   background: $color-grey-extra-light;
   border-radius: $border-radius-default;
@@ -67,10 +78,13 @@ export default {
   width: 100%;
   font-family: inherit;
 }
+
 .form__input::placeholder {
   color: $color-grey-light;
 }
+
 .form__input:not(:last-of-type) {
   margin-bottom: 16px;
 }
+
 </style>

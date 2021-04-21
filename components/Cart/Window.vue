@@ -83,11 +83,13 @@ export default {
 .ordered {
   order: -1;
 }
+
 .wrapper {
   display: flex;
   flex-direction: column;
   row-gap: 32px;
 }
+
 .modal {
   position: absolute;
   top: 0;
@@ -98,6 +100,7 @@ export default {
   right: 0;
   background-color: rgba(255, 255, 255, 0.8);
 }
+
 .container {
   background-color: white;
   position: absolute;
@@ -111,14 +114,17 @@ export default {
   margin-left: auto;
   padding: 52px 48px;
 }
+
 .title {
   @include bold-text(3.2rem);
   margin-bottom: 24px;
 }
+
 .noitems {
   font-size: 2.2rem;
   width: 90%;
 }
+
 .button {
   width: 100%;
   background-color: $color-black;
@@ -131,9 +137,11 @@ export default {
   margin-top: 24px;
   font-size: 1.6rem;
 }
+
 .button:hover {
   background-color: $color-grey;
 }
+
 .close {
   position: absolute;
   background-color: white;
@@ -143,16 +151,19 @@ export default {
   display: flex;
   cursor: pointer;
 }
+
 .text {
   font-size: 1.8rem;
   color: $color-grey;
   margin-bottom: 16px;
 }
+
 .items {
   display: flex;
   flex-direction: column;
   row-gap: 16px;
 }
+
 .done {
   flex-grow: 1;
   display: flex;
@@ -160,14 +171,19 @@ export default {
   align-items: center;
   justify-content: center;
 }
+
 .done img {
   display: flex;
   margin-bottom: 24px;
 }
+
 .done span:nth-child(2) {
   @include bold-text(2.4rem)
 }
+
 .done span:nth-child(3) {
+  font-size: 1.6rem;
   margin-bottom: 100px;
 }
+
 </style>
